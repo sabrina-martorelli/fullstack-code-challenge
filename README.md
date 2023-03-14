@@ -16,9 +16,9 @@ One of your colleagues have kindly done *some* setup for you:
 ## Requirements
 
 - The application should enable users to search for books based on its Title OR Author.
-- It should enable users to sort by published date.
+- It should enable users to sort by published date (A new concept).
 - It should allow users to input new books.
-- It should have at tests in the React code and in the Laravel code
+- It should have some tests in both the React code and in the Laravel code
     - To save time & effort, it's acceptable to limit the tests to 5 different tests.
     - Think careful about which tests are most important, and which demonstrate your skills best.
 - Use CSS to style the application and make it look professional and user-friendly.
