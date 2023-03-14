@@ -12,11 +12,7 @@ class Book extends Model
     protected $fillable = [
         'title',
         'author',
-        'published',
-        'summary',
+        'summary'
     ];
 
-    protected $casts = [
-        'published' => 'datetime',
-    ];
 }
