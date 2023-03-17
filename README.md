@@ -4,9 +4,9 @@
 This code challenge will ask you to demonstrate your Laravel and React experience.
 
 ## Background
-Your task is to create a simple web application that allows users to search for and view information about books using Laravel and React. You will be working with a JSON data that contains data about books.
+Your task is to create a simple web application that allows users to search for and view information about books using Laravel and React. You will be working with a JSON that contains data about books.
 
-One of your colleagues have kindly done *some* setup for you:
+One of your colleagues has kindly done *some* setup for you:
 - They have much of the setup containerised in Docker
 - Installed Laravel with PHP 8
 - Set up a Migration & Seed data, for Book titles, authors and summaries. But they do not run automatically!
@@ -21,7 +21,7 @@ One of your colleagues have kindly done *some* setup for you:
 - It should have some tests in both the React code and in the Laravel code
     - To save time & effort, it's acceptable to limit the tests to 5 different tests.
     - Think careful about which tests are most important, and which demonstrate your skills best.
-- Use CSS to style the application and make it look professional and user-friendly.
+- Style the application and make it look professional and user-friendly.
 
 ## Guidelines
 - The task should take between 1-2 hours.
