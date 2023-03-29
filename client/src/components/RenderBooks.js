@@ -21,9 +21,9 @@ const RenderBooks = (props) => {
       { field: 'published_date',headerName: 'Published date',width: 150,editable: false,headerClassName: 'dataGridHeader',} ];
 
     //If there are no books stored, shows the following text
-    setShow(<Typography variant='body1' align='center'>There are no books to show at the moment . </Typography>);
+    setShow(<Typography variant='body1' align='center'>At the moment , there are no books to show. </Typography>);
 
-    //chequear si este no da siempre lleno.
+    
     if (props.booksList) {
 
       //Sets DataGrid to show on screen
@@ -52,7 +52,7 @@ const RenderBooks = (props) => {
         </Box>);
     }
 
-  }, []);
+  }, [props.booksList]);
 
   return (
     <>

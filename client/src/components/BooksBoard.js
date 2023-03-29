@@ -12,12 +12,11 @@ const BooksBoard = () => {
 
     const [bookList, setBookList] = useState([]); 
 
-    const handleBookList = (bookList) => {
+    const handleBookList = (list) => {
     // setBookList( prevBookList => {
     //     return [bookList, ...prevBookList]
     // });
-
-     setBookList(bookList);
+     setBookList(list);
 
     };
     return ( 
@@ -31,7 +30,7 @@ const BooksBoard = () => {
           </Grid>
           <Grid item xs={12} sm={5} >
           <SearchBooks onSearch={handleBookList}/>
-         { console.log(bookList)}
+            {console.log(bookList)}
           </Grid>
 
           <Grid item xs={12} sm={6} >

@@ -76,19 +76,7 @@ const AddBooks = () => {
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3} justifyContent="center" padding={2} >
 
-              <Grid item xs={12} >
-                <LocalizationProvider dateAdapter={AdapterDayjs} >
-                  <DatePicker
-                    label="Date"
-                    value={date}  
-                    onChange={(newValue) => {
-                      setDate(newValue);
-                    }}
-                    renderInput={(params) => <TextField fullWidth required {...params} />}
-                  />
-                </LocalizationProvider>
-              </Grid>
-
+           
               <Grid item xs={12}>
                 <TextField
                   name='title'
@@ -122,6 +110,20 @@ const AddBooks = () => {
                   fullWidth
                   required />
               </Grid>
+
+              <Grid item xs={12} >
+                <LocalizationProvider dateAdapter={AdapterDayjs} >
+                  <DatePicker
+                    label="Date"
+                    value={date}  
+                    onChange={(newValue) => {
+                      setDate(newValue);
+                    }}
+                    renderInput={(params) => <TextField fullWidth required {...params} />}
+                  />
+                </LocalizationProvider>
+              </Grid>
+
               <Grid item xs={12}>
               <ThemeProvider theme={theme}>
                 <Button
