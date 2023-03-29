@@ -60,7 +60,7 @@ const SearchBooks = (props)  => {
 
   const getAll = async () => {
     const response = await axios.get(`${endpoint}/books`);
-    props.onSearch(response.data);
+    props.onSearch(response.data.reverse());
   
     
 }
@@ -68,7 +68,7 @@ const SearchBooks = (props)  => {
 
   const getSome = async () => {
     const response =   await axios.post(`${endpoint}/books/search`, {searchTerm: searchTerm});
-    props.onSearch(response.data);
+    props.onSearch(response.data.reverse());
    
     
 }

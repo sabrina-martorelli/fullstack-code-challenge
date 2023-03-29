@@ -23,7 +23,7 @@ const BooksBoard = () => {
 
     const getAll = async () => {
         const response = await axios.get(`${endpoint}/books`);
-        setBookList(response.data);        
+        setBookList(response.data.reverse());        
     }
     
   

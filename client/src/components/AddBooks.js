@@ -63,7 +63,7 @@ const AddBooks = (props) => {
   
     const response = await axios.get(`${endpoint}/books`);
     
-    props.onAdd(response.data);
+    props.onAdd(response.data.reverse());
 
 
     //Cleans inputs 
