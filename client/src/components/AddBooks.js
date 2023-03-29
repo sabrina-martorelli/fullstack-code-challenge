@@ -63,19 +63,17 @@ const AddBooks = (props) => {
   
     const response = await axios.get(`${endpoint}/books`);
     
-    setBooksList(response.data);
-   
-    
-    props.onAdd(booksList);
+    props.onAdd(response.data);
 
 
     //Cleans inputs 
-    setDate(null);
+   
     setFormData({
       title: '',
       author: '',
       description: ''
     });
+    setDate(null);
   
 
     
