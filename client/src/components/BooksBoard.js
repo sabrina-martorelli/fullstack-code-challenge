@@ -42,7 +42,7 @@ const BooksBoard = () => {
     };
     return ( 
         <>
-        <Grid container spacing={0} justifyContent="center" pb={50}
+        <Grid container spacing={0} justifyContent="center" pb={10}
           pr={20}
           pl={30}  >
   
