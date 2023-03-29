@@ -10,9 +10,9 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-//import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-//import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-//import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -76,7 +76,7 @@ const AddBooks = () => {
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3} justifyContent="center" padding={2} >
 
-              {/* <Grid item xs={12} >
+              <Grid item xs={12} >
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                   <DatePicker
                     label="Date"
@@ -87,7 +87,7 @@ const AddBooks = () => {
                     renderInput={(params) => <TextField fullWidth required {...params} />}
                   />
                 </LocalizationProvider>
-              </Grid> */}
+              </Grid>
 
               <Grid item xs={12}>
                 <TextField

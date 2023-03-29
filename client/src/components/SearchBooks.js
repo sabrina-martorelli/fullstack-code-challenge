@@ -54,7 +54,7 @@ const SearchBooks = (props)  => {
 
    setSearchTerm('');
 
-   //navigate('/');
+  // navigate('/');
 
   }
 
