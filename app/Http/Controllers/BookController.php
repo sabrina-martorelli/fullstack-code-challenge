@@ -33,12 +33,12 @@ class BookController extends Controller
     public function search(Request $request)
     {
         //Get searchTerm from input
-        $searchTerm = $request->searchTerm;
-        
+        //$term = $request->searchTerm;
+        $term ='Rye';
         //Retrieve all books from the database that match the given searchTerm
-        $books = Book::where('title', 'like', '%'.$searchTerm.'%')
-                    ->orWhere('author', 'like', '%'.$searchTerm.'%')
-                    ->get();
+        $books = Book::where('title', 'LIKE', '%'.$term.'%')
+                    ->orWhere('author', 'LIKE', '%'.$term.'%')
+                     ->get();
 
         //Return array of books
         return response()->json($books);
