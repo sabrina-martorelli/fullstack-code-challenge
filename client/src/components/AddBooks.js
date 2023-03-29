@@ -18,12 +18,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import moment from 'moment';
 
-const endpoint = 'http://localhost:8000/api/book';
+const endpoint = 'http://localhost:8000/api';
 
 
-const AddBooks = () => {
+const AddBooks = (props) => {
 
-
+  const [booksList, setBooksList] = useState('');
 
   const [date, setDate] = useState(null);
   const [formData, setFormData] = useState({
@@ -58,8 +58,16 @@ const AddBooks = () => {
 
     const formattedDate = moment(`${date}`).format('YYYY/MM/DD');
 
-    await axios.post(endpoint, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
+    await axios.post(`${endpoint}/book`, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
   
+    const response = await axios.get(`${endpoint}/books`);
+    
+    setBooksList(response.data);
+    console.log(response.data);
+    
+    props.onAdd(booksList);
+
+
     //Cleans inputs 
     setDate(null);
     setFormData({
@@ -71,6 +79,8 @@ const AddBooks = () => {
    // navigate('/');
     
   }
+
+
 
 
   return (

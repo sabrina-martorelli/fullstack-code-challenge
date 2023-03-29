@@ -14,11 +14,11 @@ const RenderBooks = (props) => {
   useEffect(() => {
 
     const columns = [
-      { field: 'id', headerName: '#', width: 10, headerClassName: 'dataGridHeader', },
-      { field: 'title', headerName: 'Title', width: 100, editable: false, headerClassName: 'dataGridHeader', },
-      { field: 'author', headerName: 'Author', width: 150, editable: false, headerClassName: 'dataGridHeader', },
-      { field: 'description', headerName: 'Description', width: 150, editable: false, headerClassName: 'dataGridHeader', },
-      { field: 'published_date',headerName: 'Published date',width: 150,editable: false,headerClassName: 'dataGridHeader',} ];
+      { field: 'id', headerName: '#', width: 100, headerClassName: 'dataGridHeader', },
+      { field: 'title', headerName: 'Title', width: 400, editable: false, headerClassName: 'dataGridHeader', },
+      { field: 'author', headerName: 'Author', width: 400, editable: false, headerClassName: 'dataGridHeader', },
+      { field: 'description', headerName: 'Description', width: 400, editable: false, headerClassName: 'dataGridHeader', },
+      { field: 'published_date',headerName: 'Published date',width: 400,editable: false,headerClassName: 'dataGridHeader',} ];
 
     //If there are no books stored, shows the following text
     setShow(<Typography variant='body1' align='center'> Use the search box to see books on this list. </Typography>);
@@ -31,7 +31,7 @@ const RenderBooks = (props) => {
         <Box
           sx={{
             height: '100%',
-            width: '50%',
+            width: '100%',
             '& .dataGridHeader': {
               backgroundColor: '#001C55',
               color: '#fff',
@@ -44,8 +44,8 @@ const RenderBooks = (props) => {
           <DataGrid
             rows={props.booksList}
             columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
+           // pageSize={5}
+           // rowsPerPageOptions={[5]}
             disableSelectionOnClick
             experimentalFeatures={{ newEditingApi: true }}
           />
