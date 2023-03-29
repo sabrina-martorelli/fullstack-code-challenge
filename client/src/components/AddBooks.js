@@ -16,6 +16,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import moment from 'moment';
+
 const endpoint = 'http://localhost:8000/api/book';
 
 
@@ -53,17 +55,20 @@ const AddBooks = () => {
 
   const handleSubmit = async (event) => { 
     event.preventDefault();
-    await axios.post(endpoint, {title: formData.title, author: formData.author, description: formData.description, publishedDate: date})
+
+    const formattedDate = moment(`${date}`).format('YYYY/MM/DD');
+
+    await axios.post(endpoint, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
   
     //Cleans inputs 
     setDate(null);
     setFormData({
       title: '',
       author: '',
-      summaries: ''
+      description: ''
     });
   
-    navigate('/');
+   // navigate('/');
     
   }
 
