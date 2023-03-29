@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/books', 'App\Http\Controllers\BookController@index');
+//Route::get('/books', 'App\Http\Controllers\BookController@index');
 
+Route::controller(BookController::class)->group(function (){
+    Route::get('/books', 'index');
+    Route::post('/book', 'store');
+    Route::get('/books/search', 'search');
+ 
+});
