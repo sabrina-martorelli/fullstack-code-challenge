@@ -8,7 +8,8 @@ const NotFound = () => {
                 align='center'
                 sx={{ p: 5 }}>
                 Page not found.The URL doesn't exist on the site.
-            </Typography> /}
+            </Typography>
+            }
 
         </>
 

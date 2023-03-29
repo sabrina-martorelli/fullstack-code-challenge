@@ -34,7 +34,10 @@ class BookController extends Controller
     {
         //Get searchTerm from input
         //$term = $request->searchTerm;
-        $term ='Rye';
+        
+        $term =$request->input('searchTerm');
+        error_log($request);
+        error_log($term);
         //Retrieve all books from the database that match the given searchTerm
         $books = Book::where('title', 'LIKE', '%'.$term.'%')
                     ->orWhere('author', 'LIKE', '%'.$term.'%')
