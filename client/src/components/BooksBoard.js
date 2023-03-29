@@ -29,7 +29,7 @@ const BooksBoard = () => {
           </Grid>
           <Grid item xs={12} sm={5} >
           <SearchBooks onSearch={handleBookList}/>
-      
+         { console.log(bookList)}
           </Grid>
 
           <Grid item xs={12} sm={5} >
