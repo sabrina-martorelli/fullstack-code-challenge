@@ -9,14 +9,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
 const endpoint = 'http://localhost:8000/api'
 
-
+//Component that search books on DB. If the input is blank will show full list of books.
 const SearchBooks = (props)  => {
 
   const [searchTerm, setSearchTerm] = useState('');
-  
 
   // Set style for for button on form
   const theme = createTheme({
@@ -28,51 +26,38 @@ const SearchBooks = (props)  => {
     },
   });
 
-
-
+  //Handler for Clear Search button
   const handleClear = (event) => {
     setSearchTerm('');
     getAll();
   };
 
-
+  
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
- 
   };
 
-
   const handleSubmit = (event) => {
-   
    event.preventDefault();
-
+   //Calls a different function depending on the type of termSearch entered.
    if(searchTerm.trim() !==''){ getSome();}
    else { getAll();}
-   
+   //Cleans input
    setSearchTerm('');
-
   }
 
-
-
-
+//Gets the compleat list of books from DB.
   const getAll = async () => {
     const response = await axios.get(`${endpoint}/books`);
-    props.onSearch(response.data.reverse());
-  
-    
+    props.onSearch(response.data.reverse());  
 }
-
-
+  //Gets list of books from DB based on search.
   const getSome = async () => {
     const response =   await axios.post(`${endpoint}/books/search`, {searchTerm: searchTerm});
     props.onSearch(response.data.reverse());
    
-    
 }
-
-
-
+  //Return a Material UI Grid with form 
   return (
     <>
       <Card style={{ maxWidth: 350, margin: "0 auto",}} >
@@ -91,7 +76,6 @@ const SearchBooks = (props)  => {
                    />
               </Grid>
 
-
               <Grid item xs={12}>
               <ThemeProvider theme={theme}>
                 <Button
@@ -102,7 +86,6 @@ const SearchBooks = (props)  => {
                   > Search Book </Button>
                   </ThemeProvider>
               </Grid>
-
               <Grid item xs={12}>
               <ThemeProvider theme={theme}>
                 <Button

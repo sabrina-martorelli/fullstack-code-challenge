@@ -64,14 +64,13 @@ const AddBooks = (props) => {
     });
     setDate(null); 
   }
-
+  //Return a Material UI Grid with form 
   return (
     <>
       <Card style={{ maxWidth: 400, margin: "0 auto",}} >
         <CardContent>
           <form onSubmit={handleSubmit}>
-            <Grid container spacing={3} justifyContent="center" padding={2} >
-           
+            <Grid container spacing={3} justifyContent="center" padding={2} >   
               <Grid item xs={12}>
                 <TextField
                   name='title'
