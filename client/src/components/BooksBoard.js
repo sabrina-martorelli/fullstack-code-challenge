@@ -55,7 +55,7 @@ const BooksBoard = () => {
           <SearchBooks onSearch={handleBookList}/> 
           </Grid>
 
-          <Grid item xs={12} >
+          <Grid item xs={12} pt={15} >
             <RenderBooks booksList={bookList}/>
           </Grid>
 

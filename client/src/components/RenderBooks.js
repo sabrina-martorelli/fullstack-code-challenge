@@ -54,7 +54,7 @@ const RenderBooks = (props) => {
 
   return (
     <>
-      <Typography variant='h4' align='center' sx={{ p: 5 }}> List of Books </Typography>
+
       {/*Shows the correct Text or table of books depending state */}
       {show}
 

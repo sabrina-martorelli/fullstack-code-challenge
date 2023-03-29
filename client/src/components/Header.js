@@ -1,5 +1,12 @@
+
+import Typography from '@mui/material/Typography';
+
 const Header = () => {
-    return ( <h1>Header</h1> );
+    return ( 
+    
+        <Typography variant='h2' align='center' sx={{ p: 5 }}> Book Corner </Typography>
+
+        );
 }
  
 export default Header;
