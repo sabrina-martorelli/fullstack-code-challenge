@@ -55,10 +55,11 @@ const AddBooks = (props) => {
   };
 
   const handleSubmit = async (event) => { 
+   
     event.preventDefault();
 
     const formattedDate = moment(`${date}`).format('YYYY/MM/DD');
-
+   
     await axios.post(`${endpoint}/book`, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
   
     const response = await axios.get(`${endpoint}/books`);

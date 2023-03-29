@@ -31,10 +31,15 @@ const SearchBooks = (props)  => {
 
 
 
-  const handleChange = (event) => {
+  const handleClear = (event) => {
+    setSearchTerm('');
+    getAll();
+  };
 
+
+  const handleChange = (event) => {
     setSearchTerm(event.target.value);
-   
+ 
   };
 
 
@@ -42,15 +47,9 @@ const SearchBooks = (props)  => {
    
    event.preventDefault();
 
-   if(searchTerm.trim() !==''){
-     getSome();  
-  
-    }
-   else {
-    getAll();
-   }
+   if(searchTerm.trim() !==''){ getSome();}
+   else { getAll();}
    
-
    setSearchTerm('');
 
   }
@@ -102,6 +101,18 @@ const SearchBooks = (props)  => {
                   color= 'brand'
                   fullWidth
                   > Search Book </Button>
+                  </ThemeProvider>
+              </Grid>
+
+              <Grid item xs={12}>
+              <ThemeProvider theme={theme}>
+                <Button
+                  type="button"
+                  variant='contained'
+                  color= 'brand'
+                  onClick ={handleClear}
+                  fullWidth
+                  > Clear Search </Button>
                   </ThemeProvider>
               </Grid>
 

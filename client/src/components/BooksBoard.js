@@ -12,51 +12,47 @@ const endpoint = 'http://localhost:8000/api'
 
 const BooksBoard = () => {
 
-    const [bookList, setBookList] = useState(''); 
-  
- 
-    useEffect(() => { 
-    
-   getAll();
+    const [bookList, setBookList] = useState('');
+
+    useEffect(() => {
+
+        getAll();
 
     }, []);
 
     const getAll = async () => {
         const response = await axios.get(`${endpoint}/books`);
-        setBookList(response.data.reverse());        
+        setBookList(response.data.reverse());
     }
-    
-  
 
     const handleBookList = (list) => {
-
         setBookList(list);
-
     };
-    return ( 
+
+    return (
         <>
-        <Grid container spacing={0} justifyContent="center" 
-          pb={10}
-          pr={20}
-          pl={30}  >
-  
-          <Grid item xs={12} sm={6}>
-          <AddBooks onAdd={handleBookList}/>
-          </Grid>
+            <Grid container 
+                spacing={0} 
+                justifyContent="center"
+                pb={10}
+                pr={20}
+                pl={30}  >
+                <Grid item xs={12} sm={6}>
+                    <AddBooks onAdd={handleBookList} />
+                </Grid>
 
-          <Grid item xs={12} sm={6} pt={15}>
-          <SearchBooks onSearch={handleBookList}/> 
-          </Grid>
+                <Grid item xs={12} sm={6} pt={15}>
+                    <SearchBooks onSearch={handleBookList} />
+                </Grid>
 
-          <Grid item xs={12} pt={15} >
-            <RenderBooks booksList={bookList}/>
-          </Grid>
+                <Grid item xs={12} pt={15} >
+                    <RenderBooks booksList={bookList} />
+                </Grid>
+            </Grid>
+        </>
 
-        </Grid>
-      </>
 
-
-     );
+    );
 }
- 
+
 export default BooksBoard;
