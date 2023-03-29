@@ -3,8 +3,10 @@ import { useState } from 'react';
 
 import AddBooks from './AddBooks';
 import SearchBooks from './SearchBooks';
+import RenderBooks from './RenderBooks';
 
 import Grid from '@mui/material/Grid';
+
 
 const BooksBoard = () => {
 
@@ -32,8 +34,8 @@ const BooksBoard = () => {
          { console.log(bookList)}
           </Grid>
 
-          <Grid item xs={12} sm={5} >
-            {/* booktable */}
+          <Grid item xs={12} sm={6} >
+            <RenderBooks booksList={bookList}/>
           </Grid>
 
         </Grid>
