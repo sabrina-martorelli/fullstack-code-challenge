@@ -49,6 +49,8 @@ const AddBooks = (props) => {
       ...formData,
       [event.target.name]: event.target.value
     });
+
+    
    
   };
 
@@ -62,7 +64,7 @@ const AddBooks = (props) => {
     const response = await axios.get(`${endpoint}/books`);
     
     setBooksList(response.data);
-    console.log(response.data);
+   
     
     props.onAdd(booksList);
 

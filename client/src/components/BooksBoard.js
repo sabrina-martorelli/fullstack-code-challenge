@@ -13,13 +13,11 @@ const endpoint = 'http://localhost:8000/api'
 const BooksBoard = () => {
 
     const [bookList, setBookList] = useState(''); 
-
-    
-
-    
+  
+ 
     useEffect(() => { 
     
-    getAll();
+   getAll();
 
     }, []);
 
@@ -28,16 +26,11 @@ const BooksBoard = () => {
         setBookList(response.data);        
     }
     
-
+  
 
     const handleBookList = (list) => {
-    
-        // setBookList( prevList => {
-        //     return [list, ...prevList]
-        //   });
 
-
-    setBookList(list);
+        setBookList(list);
 
     };
     return ( 

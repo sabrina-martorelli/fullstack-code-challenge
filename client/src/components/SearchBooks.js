@@ -2,31 +2,23 @@ import { useState } from 'react';
 
 import axios from 'axios'
 
-
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 const endpoint = 'http://localhost:8000/api'
 
 
-
 const SearchBooks = (props)  => {
-
 
   const [searchTerm, setSearchTerm] = useState('');
   
   const [booksList, setBooksList] = useState();
 
-
- 
-  
   // Set style for for button on form
   const theme = createTheme({
     palette: {
@@ -50,8 +42,6 @@ const SearchBooks = (props)  => {
    
    event.preventDefault();
 
-  
-
    if(searchTerm.trim() !==''){
      getSome();  
   
@@ -61,11 +51,7 @@ const SearchBooks = (props)  => {
    }
    
 
-   props.onSearch(booksList);
-
    setSearchTerm('');
-
- 
 
   }
 
@@ -73,19 +59,17 @@ const SearchBooks = (props)  => {
 
 
   const getAll = async () => {
-
-   
     const response = await axios.get(`${endpoint}/books`);
-    setBooksList(response.data);
+    props.onSearch(response.data);
+  
     
 }
 
 
   const getSome = async () => {
-    
     const response =   await axios.post(`${endpoint}/books/search`, {searchTerm: searchTerm});
-
-    setBooksList(response.data);
+    props.onSearch(response.data);
+   
     
 }
 
@@ -93,7 +77,6 @@ const SearchBooks = (props)  => {
 
   return (
     <>
-   
       <Card style={{ maxWidth: 350, margin: "0 auto",}} >
         <CardContent>
           <form onSubmit={handleSubmit}>
@@ -110,7 +93,6 @@ const SearchBooks = (props)  => {
                    />
               </Grid>
 
-         
 
               <Grid item xs={12}>
               <ThemeProvider theme={theme}>
