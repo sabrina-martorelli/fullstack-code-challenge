@@ -111,12 +111,14 @@ const AddBooks = () => {
                   label='Description'
                   placeholder='Enter Description'
                   variant='outlined'
+                  rows={4}
+                  multiline
                   onChange={handleChange}
                   fullWidth
                   required />
               </Grid>
 
-              <Grid item xs={12} >
+              <Grid item xs={12}>
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                   <DatePicker
                     label="Date"

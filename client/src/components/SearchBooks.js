@@ -48,11 +48,12 @@ const SearchBooks = (props)  => {
   const handleSubmit = (event) => {
    
    event.preventDefault();
-   console.log(searchTerm);
+
+  
 
    if(searchTerm.trim() !==''){
      getSome();  
-    
+  
     }
    else {
     getAll();
@@ -81,7 +82,8 @@ const SearchBooks = (props)  => {
 
   const getSome = async () => {
     
-    const response = await axios.post(`${endpoint}/books/search`);
+    const response =   await axios.post(`${endpoint}/books/search`, {searchTerm: searchTerm});
+
     setBooksList(response.data);
     
 }
