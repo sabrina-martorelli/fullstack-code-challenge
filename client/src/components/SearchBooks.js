@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+
 import axios from 'axios'
 
 
@@ -21,10 +21,11 @@ const SearchBooks = (props)  => {
 
 
   const [searchTerm, setSearchTerm] = useState('');
+  
   const [booksList, setBooksList] = useState();
 
 
-  const navigate = useNavigate();
+ 
   
   // Set style for for button on form
   const theme = createTheme({
@@ -64,7 +65,7 @@ const SearchBooks = (props)  => {
 
    setSearchTerm('');
 
-   //navigate('/');
+ 
 
   }
 
@@ -102,7 +103,7 @@ const SearchBooks = (props)  => {
                   name='searchTerm'
                   value={searchTerm}
                   label='Search'
-                  placeholder='Enter Author OR Title'
+                  placeholder='Enter Author OR Title' 
                   variant='outlined'
                   onChange={handleChange}
                   fullWidth

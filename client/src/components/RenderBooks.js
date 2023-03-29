@@ -17,11 +17,11 @@ const RenderBooks = (props) => {
       { field: 'id', headerName: '#', width: 100, headerClassName: 'dataGridHeader', },
       { field: 'title', headerName: 'Title', width: 400, editable: false, headerClassName: 'dataGridHeader', },
       { field: 'author', headerName: 'Author', width: 400, editable: false, headerClassName: 'dataGridHeader', },
-      { field: 'description', headerName: 'Description', width: 400, editable: false, headerClassName: 'dataGridHeader', },
+      { field: 'description', headerName: 'Description', width: 1100, editable: false, headerClassName: 'dataGridHeader', },
       { field: 'published_date',headerName: 'Published date',width: 400,editable: false,headerClassName: 'dataGridHeader',} ];
 
     //If there are no books stored, shows the following text
-    setShow(<Typography variant='body1' align='center'> Use the search box to see books on this list. </Typography>);
+    setShow(<Typography variant='body1' align='center'>Use the search box to see books on this list.  </Typography>);
 
     
     if (props.booksList) {
@@ -57,6 +57,7 @@ const RenderBooks = (props) => {
 
       {/*Shows the correct Text or table of books depending state */}
       {show}
+      
 
     </>
   )

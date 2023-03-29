@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 import axios from 'axios';
 
@@ -32,7 +32,6 @@ const AddBooks = (props) => {
     description: ''
   });
 
-  const navigate = useNavigate()
 
   // Set style for for button on form
   const theme = createTheme({
@@ -76,7 +75,7 @@ const AddBooks = (props) => {
       description: ''
     });
   
-   // navigate('/');
+
     
   }
 
@@ -128,10 +127,11 @@ const AddBooks = (props) => {
                   required />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} >
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                   <DatePicker
                     label="Date"
+                    fullWidth
                     value={date}  
                     onChange={(newValue) => {
                       setDate(newValue);
