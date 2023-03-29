@@ -1,6 +1,4 @@
-
 import { useState } from 'react';
-
 
 import axios from 'axios';
 
@@ -9,33 +7,25 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import moment from 'moment';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
-
-
-import moment from 'moment';
-
 const endpoint = 'http://localhost:8000/api';
 
-
+//Component that adds a new book to the DB and rerender the table
 const AddBooks = (props) => {
 
- 
-
   const [date, setDate] = useState(null);
-
   const [formData, setFormData] = useState({
     title: '',
     author: '',
     description: ''
   });
-
 
   // Set style for for button on form
   const theme = createTheme({
@@ -52,44 +42,31 @@ const AddBooks = (props) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
-    });
-
-    
-   
+    }) 
   };
 
   const handleSubmit = async (event) => { 
-   
     event.preventDefault();
-
-    const formattedDate = moment(`${date}`).format('YYYY/MM/DD');
-   
-    await axios.post(`${endpoint}/book`, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
-  
-    const response = await axios.get(`${endpoint}/books`);
     
+    const formattedDate = moment(`${date}`).format('YYYY/MM/DD');
+    //Send data of new book to DB
+    await axios.post(`${endpoint}/book`, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
+    //Gets list of books including new one
+    const response = await axios.get(`${endpoint}/books`); 
+    //Lift the state to pass new list to next RenderBooks component
     props.onAdd(response.data.reverse());
 
-
-    //Cleans inputs 
-   
+    //Clear inputs and date
     setFormData({
       title: '',
       author: '',
       description: ''
     });
-    setDate(null);
-  
-
-    
+    setDate(null); 
   }
-
-
-
 
   return (
     <>
-  
       <Card style={{ maxWidth: 400, margin: "0 auto",}} >
         <CardContent>
           <form onSubmit={handleSubmit}>
