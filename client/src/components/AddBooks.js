@@ -10,11 +10,14 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
 
 import moment from 'moment';
 
@@ -23,9 +26,10 @@ const endpoint = 'http://localhost:8000/api';
 
 const AddBooks = (props) => {
 
-  const [booksList, setBooksList] = useState('');
+ 
 
   const [date, setDate] = useState(null);
+
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -86,11 +90,10 @@ const AddBooks = (props) => {
   return (
     <>
   
-      <Card style={{ maxWidth: 350, margin: "0 auto",}} >
+      <Card style={{ maxWidth: 400, margin: "0 auto",}} >
         <CardContent>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3} justifyContent="center" padding={2} >
-
            
               <Grid item xs={12}>
                 <TextField
@@ -131,18 +134,15 @@ const AddBooks = (props) => {
               <Grid item xs={12} >
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                   <DatePicker
-                    label="Date"
-                    fullWidth
-                    value={date}  
-                    onChange={(newValue) => {
-                      setDate(newValue);
-                    }}
-                    renderInput={(params) => <TextField fullWidth required {...params} />}
+                    label="Published Date"
+                    value={date}         
+                    onChange={(newValue) => {setDate(newValue);}}       
+                    renderInput={(params) => <TextField fullWidth required {...params}/>}
                   />
                 </LocalizationProvider>
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} >
               <ThemeProvider theme={theme}>
                 <Button
                   type="submit"

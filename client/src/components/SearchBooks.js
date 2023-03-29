@@ -17,7 +17,6 @@ const SearchBooks = (props)  => {
 
   const [searchTerm, setSearchTerm] = useState('');
   
-  const [booksList, setBooksList] = useState();
 
   // Set style for for button on form
   const theme = createTheme({

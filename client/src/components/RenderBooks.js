@@ -4,13 +4,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import moment from 'moment';
 
+
 const RenderBooks = (props) => {
 
+    
     const columns = [
         { field: 'id', headerName: '#', width: 100, headerClassName: 'dataGridHeader', },
         { field: 'title', headerName: 'Title', width: 300, editable: false, headerClassName: 'dataGridHeader', },
         { field: 'author', headerName: 'Author', width: 200, editable: false, headerClassName: 'dataGridHeader', },
-        { field: 'description', headerName: 'Description', width: 1500, editable: false, headerClassName: 'dataGridHeader'},
+        { field: 'description', headerName: 'Description', width: 1500, editable: false, headerClassName: 'dataGridHeader', },
         { field: 'published_date', headerName: 'Published date', width: 200, editable: false, headerClassName: 'dataGridHeader',valueFormatter: params => moment(params?.value).format("YYYY/MM/DD") }];
 
     return (
