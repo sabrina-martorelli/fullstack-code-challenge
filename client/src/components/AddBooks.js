@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -30,7 +30,7 @@ const AddBooks = () => {
     description: ''
   });
 
-  //const navigate = useNavigate()
+  const navigate = useNavigate()
 
   // Set style for for button on form
   const theme = createTheme({
@@ -63,7 +63,7 @@ const AddBooks = () => {
       summaries: ''
     });
   
-    // navigate('/');
+    navigate('/');
     
   }
 

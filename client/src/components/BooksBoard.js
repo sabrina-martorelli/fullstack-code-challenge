@@ -1,8 +1,23 @@
+import { useState } from 'react';
+
+
+import AddBooks from './AddBooks';
+import SearchBooks from './SearchBooks';
 
 import Grid from '@mui/material/Grid';
-import AddBooks from './AddBooks';
 
 const BooksBoard = () => {
+
+    const [bookList, setBookList] = useState([]); 
+
+    const handleBookList = (bookList) => {
+    // setBookList( prevBookList => {
+    //     return [bookList, ...prevBookList]
+    // });
+
+     setBookList(bookList);
+
+    };
     return ( 
         <>
         <Grid container spacing={1} justifyContent="center" pb={10}
@@ -13,7 +28,8 @@ const BooksBoard = () => {
           <AddBooks/>
           </Grid>
           <Grid item xs={12} sm={5} >
-            {/* search */}
+          <SearchBooks onSearch={handleBookList}/>
+      
           </Grid>
 
           <Grid item xs={12} sm={5} >
