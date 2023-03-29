@@ -21,7 +21,8 @@ const SearchBooks = (props)  => {
 
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [booksList, setBooksList] = useState([]);
+  const [booksList, setBooksList] = useState();
+  const [url, setUrl] = useState(`${endpoint}/books`);
 
   const navigate = useNavigate();
   
@@ -54,7 +55,7 @@ const SearchBooks = (props)  => {
 
    setSearchTerm('');
 
-   navigate('/');
+   //navigate('/');
 
   }
 
@@ -62,20 +63,13 @@ const SearchBooks = (props)  => {
 
   const getAll = async () => {
 
+    if(searchTerm !=='') {
+      setUrl(`${endpoint}/books/search`);
+     }
 
-  //    if(searchTerm !== '') {
-//       url =ndpoint}/books/search?searchTerm=${searchTerm}`)
-//     }
-//      else{
-//         console.log('here');
-//         let response = await axios.get(`${endpoint}/books`);   
-//         setBooksList(response.data);
-//      }
-
-    const response = await axios.get(`${endpoint}/books`);
+    const response = await axios.get(url);
     setBooksList(response.data);
     
-  
 }
 
 

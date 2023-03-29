@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 
 const BooksBoard = () => {
 
-    const [bookList, setBookList] = useState([]); 
+    const [bookList, setBookList] = useState(); 
 
     const handleBookList = (list) => {
     // setBookList( prevBookList => {
