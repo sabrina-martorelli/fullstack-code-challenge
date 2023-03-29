@@ -20,6 +20,6 @@ use App\Http\Controllers\Api\BookController;
 Route::controller(App\Http\Controllers\BookController::class)->group(function (){
     Route::get('/books', 'index');
     Route::post('/book', 'store');
-    Route::get('/books/search', 'search');
+    Route::post('/books/search', 'search');
  
 });

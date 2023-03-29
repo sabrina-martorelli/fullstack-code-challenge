@@ -31,11 +31,11 @@ const RenderBooks = (props) => {
         <Box
           sx={{
             height: '100%',
-            width: '70%',
+            width: '50%',
             '& .dataGridHeader': {
               backgroundColor: '#001C55',
               color: '#fff',
-              fontSize: 22
+              fontSize: 20
             },
           }}
 
@@ -44,8 +44,8 @@ const RenderBooks = (props) => {
           <DataGrid
             rows={props.booksList}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
             disableSelectionOnClick
             experimentalFeatures={{ newEditingApi: true }}
           />

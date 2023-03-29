@@ -22,8 +22,8 @@ const BooksBoard = () => {
     return ( 
         <>
         <Grid container spacing={1} justifyContent="center" pb={10}
-          pr={5}
-          pl={5}  >
+          pr={2}
+          pl={2}  >
   
           <Grid item xs={12} sm={7}>
           <AddBooks/>
@@ -33,7 +33,7 @@ const BooksBoard = () => {
             {console.log(bookList)}
           </Grid>
 
-          <Grid item xs={12} sm={6} >
+          <Grid item xs={12} >
             <RenderBooks booksList={bookList}/>
           </Grid>
 

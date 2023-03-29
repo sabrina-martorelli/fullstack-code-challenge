@@ -22,7 +22,7 @@ const SearchBooks = (props)  => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [booksList, setBooksList] = useState();
-  const [url, setUrl] = useState(`${endpoint}/books`);
+
 
   const navigate = useNavigate();
   
@@ -48,8 +48,16 @@ const SearchBooks = (props)  => {
   const handleSubmit = (event) => {
    
    event.preventDefault();
+   console.log(searchTerm);
 
-   getAll();  
+   if(searchTerm.trim() !==''){
+     getSome();  
+    
+    }
+   else {
+    getAll();
+   }
+   
 
    props.onSearch(booksList);
 
@@ -61,13 +69,19 @@ const SearchBooks = (props)  => {
 
 
 
+
   const getAll = async () => {
 
-    if(searchTerm !=='') {
-      setUrl(`${endpoint}/books/search`);
-     }
+   
+    const response = await axios.get(`${endpoint}/books`);
+    setBooksList(response.data);
+    
+}
 
-    const response = await axios.get(url);
+
+  const getSome = async () => {
+    
+    const response = await axios.post(`${endpoint}/books/search`);
     setBooksList(response.data);
     
 }
