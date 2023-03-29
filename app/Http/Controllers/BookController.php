@@ -23,7 +23,7 @@ class BookController extends Controller
         $book->title = $request->title;
         $book->author = $request->author;
         $book-> description = $request-> description;   
-        $book-> published_date = Carbon::parse($request->published_date->toDateString());
+        $book-> published_date = Carbon::parse($request->published_date);
         
         //Save new book 
         $book->save();
