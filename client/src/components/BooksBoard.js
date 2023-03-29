@@ -42,15 +42,16 @@ const BooksBoard = () => {
     };
     return ( 
         <>
-        <Grid container spacing={0} justifyContent="center" pb={10}
+        <Grid container spacing={0} justifyContent="center" 
+          pb={10}
           pr={20}
           pl={30}  >
   
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12} sm={6}>
           <AddBooks onAdd={handleBookList}/>
           </Grid>
 
-          <Grid item xs={12} sm={5} >
+          <Grid item xs={12} sm={6} pt={15}>
           <SearchBooks onSearch={handleBookList}/> 
           </Grid>
 
