@@ -6,8 +6,8 @@ const NotFound = () => {
             {<Typography
                 variant='h4'
                 align='center'
-                sx={{ p: 5 }}>
-                Page not found.The URL doesn't exist on the site.
+                sx={{ pt: 50 }}>
+                Page not found. The URL doesn't exist on this site.
             </Typography>
             }
 
