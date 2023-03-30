@@ -10,9 +10,6 @@ import CardContent from '@mui/material/CardContent';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import moment from 'moment';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 const endpoint = 'http://localhost:8000/api';
@@ -20,11 +17,12 @@ const endpoint = 'http://localhost:8000/api';
 //Component that adds a new book to the DB and rerender the table
 const AddBooks = (props) => {
 
-  const [date, setDate] = useState(null);
+  
   const [formData, setFormData] = useState({
     title: '',
     author: '',
-    description: ''
+    description: '',
+    date:' '
   });
 
   // Set style for for button on form
@@ -48,7 +46,7 @@ const AddBooks = (props) => {
   const handleSubmit = async (event) => { 
     event.preventDefault();
     
-    const formattedDate = moment(`${date}`).format('YYYY/MM/DD');
+    const formattedDate = moment(`${formData.date}`).format('YYYY/MM/DD');
     //Send data of new book to DB
     await axios.post(`${endpoint}/book`, {title: formData.title, author: formData.author, description: formData.description, published_date: formattedDate})
     //Gets list of books including new one
@@ -60,14 +58,15 @@ const AddBooks = (props) => {
     setFormData({
       title: '',
       author: '',
-      description: ''
+      description: '',
+      date:' '
     });
-    setDate(null); 
+   
   }
   //Return a Material UI Grid with form 
   return (
     <>
-      <Card style={{ maxWidth: 400, margin: "0 auto",}} >
+        <Card style={{ maxWidth: 400, margin: "0 auto",}} >
         <CardContent>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3} justifyContent="center" padding={2} >   
@@ -107,15 +106,17 @@ const AddBooks = (props) => {
                   required />
               </Grid>
 
-              <Grid item xs={12} >
-                <LocalizationProvider dateAdapter={AdapterDayjs} >
-                  <DatePicker
-                    label="Published Date"
-                    value={date}         
-                    onChange={(newValue) => {setDate(newValue);}}       
-                    renderInput={(params) => <TextField fullWidth required {...params}/>}
-                  />
-                </LocalizationProvider>
+              <Grid item xs={12}>
+                <TextField
+                  type='date'
+                  name='date'
+                  value={formData.date}
+                  label='Published Date'
+                  placeholder='Enter Published'
+                  variant='outlined'    
+                  onChange={handleChange}
+                  fullWidth
+                  required />
               </Grid>
 
               <Grid item xs={12} >
