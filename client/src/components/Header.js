@@ -1,7 +1,8 @@
+import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
-
+//Component that renders a simple header
 const Header = () => {
     return ( 
     

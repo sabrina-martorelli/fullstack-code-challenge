@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';

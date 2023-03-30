@@ -1,5 +1,5 @@
-
 import React from 'react';
+
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -7,6 +7,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 
+//Component that renders a footer that includes 3  icons with Sabrina's info.
 const Footer = () => {
     const [value, setValue] = React.useState(0);
 
