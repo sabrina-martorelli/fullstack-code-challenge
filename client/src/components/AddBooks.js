@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import axios from 'axios';
+//import axios from 'axios';
 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -79,7 +79,9 @@ const AddBooks = (props) => {
                   variant='outlined'
                   onChange={handleChange}
                   fullWidth
-                  required />
+                  required
+                  inputProps={{ "data-testid": "Title" }}
+                  />
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -90,7 +92,9 @@ const AddBooks = (props) => {
                   variant='outlined'
                   onChange={handleChange}
                   fullWidth
-                  required />
+                  required
+                  inputProps={{ "data-testid": "Author" }}
+                  />
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -103,7 +107,9 @@ const AddBooks = (props) => {
                   multiline
                   onChange={handleChange}
                   fullWidth
-                  required />
+                  required
+                  inputProps={{ "data-testid": "Description" }}
+                  />
               </Grid>
 
               <Grid item xs={12}>
@@ -116,7 +122,9 @@ const AddBooks = (props) => {
                   variant='outlined'    
                   onChange={handleChange}
                   fullWidth
-                  required />
+                  required 
+                  inputProps={{ "data-testid": "Published Date" }}
+                  />
               </Grid>
 
               <Grid item xs={12} >
