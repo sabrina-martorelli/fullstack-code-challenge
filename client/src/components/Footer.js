@@ -22,7 +22,7 @@ const Footer = () => {
           }}
         >
             
-          <BottomNavigationAction label="LinkedIn" icon={<LinkedInIcon />} href="www.linkedin.com/in/sabrina-martorelli" target="blank" />
+          <BottomNavigationAction label="LinkedIn" icon={<LinkedInIcon />} href="https://www.linkedin.com/in/sabrina-martorelli" target="blank" />
           <BottomNavigationAction label="Github" icon={<GitHubIcon />}  href="https://github.com/sabrina-martorelli/" target="blank" />
           <BottomNavigationAction label="Email" icon={<EmailIcon />}  href="mailto:sabrina.martorelli@gmail.com" target="blank" />
         </BottomNavigation>
